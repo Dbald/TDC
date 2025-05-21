@@ -1,0 +1,237 @@
+Product Requirements Document (PRD)
+
+1. Overview
+
+Create a modern, sleek, and user‑friendly website that embodies “The Devinci Code”—Devin Baldwin’s personal brand that blends creativity, innovation, and education. The site will showcase Devin’s WebXR projects, speaking engagements, tutorials, and services while serving as the central hub for his audience and clients.
+
+2. Purpose & Vision
+
+Purpose: Present Devin’s multifaceted work and thought leadership in immersive tech through an engaging digital experience that converts visitors into followers, students, partners, and clients.
+
+Vision: A cutting‑edge yet approachable platform that invites exploration, sparks inspiration, and positions Devin as a forward‑thinking educator, speaker, and XR innovator.
+
+3. Objectives / Success Metrics
+
+Objective
+
+KPI / Success Metric
+
+Increase brand recognition
+
+2× growth in monthly unique visitors within 6 months
+
+Drive engagement with content
+
+Average session duration ≥ 3 minutes; bounce rate ≤ 40 %
+
+Capture leads for speaking & consulting
+
+≥ 50 qualified inquiries in first 3 months
+
+Grow tutorial subscribers
+
+1 000 newsletter sign‑ups by end of Q4
+
+4. Target Audience
+
+XR & Web Developers seeking inspiration or collaboration.
+
+Event Organizers & Companies looking to book Devin as a speaker, instructor, or consultant.
+
+Students & Educators interested in tutorials and workshops.
+
+Creative Technologists & Brands exploring immersive partnerships.
+
+Persona snapshots included in Appendix A.
+
+5. Key Features & Site Map
+
+Section
+
+Description
+
+Priority
+
+Hero / Landing
+
+Dynamic intro to Devin & brand ethos with WebXR or 3‑D element
+
+P0
+
+About Devin
+
+Story, mission, press kit, speaking reel
+
+P0
+
+Projects / Portfolio
+
+Case studies for WebXR, AR, Unreal, volumetric streaming
+
+P0
+
+Tutorials & Resources
+
+Blog/video hub, filterable by tech, difficulty
+
+P1
+
+Speaking & Workshops
+
+Topics offered, past talks, booking form
+
+P0
+
+Services
+
+Consulting packages, rates, FAQs
+
+P1
+
+Contact / Lead Capture
+
+CTA forms, newsletter opt‑in, social links
+
+P0
+
+Press & Media
+
+Logos, media kit, downloads
+
+P2
+
+Blog
+
+Thought leadership articles
+
+P2
+
+6. Look & Feel (UI/UX Style Requirements)
+
+Tone: Warm, inspiring, forward‑thinking.
+
+Aesthetic: Minimalist layouts, bold typography, high‑contrast color palette with neon/XR accents; subtle motion effects.
+
+Imagery: High‑res renders, project GIFs, speaker photos; consistent color‑grading.
+
+Interaction: Smooth scrolling, parallax depth, micro‑animations for hover states.
+
+Accessibility: WCAG 2.2 AA compliance; focus states, alt text, color‑contrast ratio ≥ 4.5∶1.
+
+7. Technical Requirements
+
+Stack: React (Next.js) preferred; A‑Frame/WebXR modules for interactive demos.
+
+Performance: Lighthouse score ≥ 90 on mobile & desktop.
+
+Responsive: Mobile‑first with progressive enhancement for desktop.
+
+SEO: Structured data (Schema.org), Open Graph tags, performant SSR.
+
+Analytics: Google Analytics 4 + privacy‑compliant cookie banner.
+
+CMS: MDX or headless CMS (e.g., Sanity) for easy content updates.
+
+8. Non‑Functional Requirements
+
+Security: HTTPS, CSP headers, basic rate‑limiting on forms.
+
+Localization‑ready: i18n framework for future language expansion.
+
+Scalability: Deploy on Vercel; CI/CD via GitHub Actions.
+
+9. AI UI Generator Prompt
+
+Prompt: “Design a UI/UX experience that embodies ‘The Devinci Code’ as Devin’s personal brand. The interface should reflect a blend of creativity, innovation, and education. It must be visually engaging and intuitive, highlighting Devin’s work in WebXR, speaking engagements, and hands‑on tutorials. The look and feel should be modern, sleek, and user‑friendly, inviting visitors to explore and engage with the content seamlessly.”
+
+Include this prompt verbatim when generating visual concepts.
+
+10. Milestones & Timeline
+
+Date
+
+Milestone
+
+Week 0
+
+PRD sign‑off
+
+Week 2
+
+Wireframes approved
+
+Week 4
+
+High‑fidelity mock‑ups & interactive prototype
+
+Week 6
+
+MVP build complete (core pages)
+
+Week 7
+
+User testing & accessibility audit
+
+Week 8
+
+Beta launch
+
+Week 10
+
+Public launch + analytics monitoring
+
+11. Stakeholders & Roles
+
+Product Owner: Devin Baldwin
+
+UX/UI Designer: TBD
+
+Front‑End Dev: TBD
+
+WebXR Specialist: Devin / contractor
+
+Content Writer: Devin + editor
+
+QA & Accessibility: TBD
+
+12. Metrics & Evaluation
+
+Engagement metrics (see §3)
+
+Qualitative feedback via on‑site survey (NPS ≥ 60)
+
+Conversion rates for lead forms (>8 %)
+
+13. Risks & Mitigation
+
+Risk
+
+Impact
+
+Mitigation
+
+Scope creep
+
+High
+
+Strict prioritization; weekly review
+
+Performance issues with WebXR assets
+
+Medium
+
+Lazy‑load, optimize models/textures
+
+Content bottleneck
+
+Medium
+
+Use CMS & template blocks for rapid updates
+
+14. Appendix A – Personas
+
+Innovator Isaac (Developer, 28, curious about WebXR…)
+
+Organizer Olivia (Conference planner, 35…)
+
+Student Sam (High‑school learner, 17…)
