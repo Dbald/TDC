@@ -60,7 +60,7 @@ const Hero = () => {
           >
             <Button 
               onClick={() => scrollToSection('projects')}
-              className="inline-block bg-[#B026FF] text-white font-heading font-medium px-8 py-6 rounded-md hover:bg-[#B026FF]/90 transition-all duration-300 text-center"
+              className="inline-flex justify-center items-center w-full sm:w-auto bg-[#B026FF] text-white font-heading font-medium px-8 py-6 rounded-md hover:bg-[#B026FF]/90 transition-all duration-300 text-center"
             >
               Explore Projects
             </Button>
@@ -68,7 +68,7 @@ const Hero = () => {
             <Button 
               onClick={() => scrollToSection('contact')}
               variant="outline"
-              className="inline-block bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#00FFFF] hover:text-[#00FFFF] transition-all duration-300 text-center"
+              className="inline-flex justify-center items-center w-full sm:w-auto bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#00FFFF] hover:text-[#00FFFF] transition-all duration-300 text-center"
             >
               Get in Touch
             </Button>

@@ -112,7 +112,7 @@ const Tutorials = () => {
         >
           <Button
             variant="outline" 
-            className="inline-block bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#00FFFF] hover:bg-[#00FFFF]/5 transition-all duration-300"
+            className="inline-flex justify-center items-center bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#00FFFF] hover:bg-[#00FFFF]/5 transition-all duration-300"
           >
             Browse All Tutorials
           </Button>

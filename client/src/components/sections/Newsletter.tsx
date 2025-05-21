@@ -90,7 +90,7 @@ const Newsletter = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="px-6 py-6 bg-[#00FFFF] text-[#121212] font-heading font-medium rounded-md hover:bg-[#00FFFF]/90 transition-all duration-300 whitespace-nowrap"
+                className="px-6 py-6 bg-[#00FFFF] text-[#121212] font-heading font-medium rounded-md hover:bg-[#00FFFF]/90 transition-all duration-300 whitespace-nowrap flex justify-center items-center w-full sm:w-auto"
               >
                 {isSubmitting ? "Subscribing..." : "Subscribe Now"}
               </Button>

@@ -69,7 +69,7 @@ const Projects = () => {
         >
           <Button
             variant="outline" 
-            className="inline-block bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#B026FF] hover:bg-[#B026FF]/5 transition-all duration-300"
+            className="inline-flex justify-center items-center bg-transparent border border-white/30 text-white font-heading font-medium px-8 py-6 rounded-md hover:border-[#B026FF] hover:bg-[#B026FF]/5 transition-all duration-300"
           >
             View All Projects
           </Button>

@@ -77,7 +77,7 @@ const Speaking = () => {
             
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="inline-block bg-[#B026FF] text-white font-heading font-medium px-8 py-6 rounded-md hover:bg-[#B026FF]/90 transition-all duration-300"
+              className="inline-flex justify-center items-center bg-[#B026FF] text-white font-heading font-medium px-8 py-6 rounded-md hover:bg-[#B026FF]/90 transition-all duration-300"
             >
               Book Devin for Your Event
             </Button>
