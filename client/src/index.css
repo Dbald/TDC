@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 0 0% 0%;
+  --accent1: 280 100% 60%; /* Neon Purple: #B026FF */
+  --accent2: 180 100% 50%; /* Electric Blue: #00FFFF */
+  --accent3: 120 100% 54%; /* Neon Green: #39FF14 */
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[#121212];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#333] rounded-sm;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#B026FF];
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#B026FF] to-[#00FFFF] bg-clip-text text-transparent;
+  }
+  
+  .animate-text-shine {
+    @apply bg-gradient-to-r from-[#B026FF] via-[#00FFFF] to-[#39FF14] bg-clip-text text-transparent bg-[length:300%_100%] animate-[textShine_8s_linear_infinite];
+  }
+
+  .neon-border {
+    @apply relative;
+  }
+  
+  .neon-border::after {
+    content: '';
+    @apply absolute inset-0 border border-[#B026FF] opacity-0 transition-opacity duration-300 pointer-events-none;
+  }
+  
+  .neon-border:hover::after {
+    @apply opacity-100 shadow-[0_0_10px_rgba(176,38,255,0.5),0_0_20px_rgba(176,38,255,0.3)];
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .card-hover:hover {
+    @apply transform -translate-y-1 shadow-[0_10px_25px_-5px_rgba(176,38,255,0.4),0_8px_10px_-6px_rgba(0,255,255,0.3)];
+  }
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(176, 38, 255, 0.5), 0 0 10px rgba(176, 38, 255, 0.3); }
+  100% { text-shadow: 0 0 10px rgba(176, 38, 255, 0.8), 0 0 20px rgba(176, 38, 255, 0.5), 0 0 30px rgba(176, 38, 255, 0.3); }
+}
