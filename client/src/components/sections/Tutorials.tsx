@@ -22,7 +22,7 @@ const Tutorials = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h4 className="font-mono text-[#00FFFF] mb-4 tracking-wider">Learn & Grow</h4>
+          <h4 className="font-mono text-[#ffde59] mb-4 tracking-wider">Learn & Grow</h4>
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
             Tutorials & <span className="gradient-text">Resources</span>
           </h2>
@@ -46,7 +46,7 @@ const Tutorials = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2 rounded-full font-heading transition-colors ${
                   activeCategory === category 
-                  ? "bg-[#00FFFF] text-[#121212]" 
+                  ? "bg-[#ffde59] text-[#121212]" 
                   : "text-white hover:bg-white/10"
                 }`}
               >

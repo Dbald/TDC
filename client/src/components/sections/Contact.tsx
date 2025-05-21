@@ -76,7 +76,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-mono text-[#39FF14] mb-4 tracking-wider">Get in Touch</h4>
+            <h4 className="font-mono text-[#ffde59] mb-4 tracking-wider">Get in Touch</h4>
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
               Let's Create Something <span className="gradient-text">Amazing</span>
             </h2>
@@ -93,8 +93,8 @@ const Contact = () => {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-[#B026FF]/10 p-3 rounded-lg">
-                  <Mail className="text-[#B026FF] h-5 w-5" />
+                <div className="bg-[#ffde59]/10 p-3 rounded-lg">
+                  <Mail className="text-[#ffde59] h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold mb-1">Email</h3>
@@ -256,7 +256,7 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full py-6 bg-[#39FF14] text-black font-heading font-medium rounded-md hover:bg-[#39FF14]/90 transition-all duration-300 flex justify-center items-center"
+                className="w-full py-6 bg-[#ffde59] text-black font-heading font-medium rounded-md hover:bg-[#ffde59]/90 transition-all duration-300 flex justify-center items-center"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
