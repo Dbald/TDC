@@ -90,7 +90,7 @@ const Header = () => {
             <Button 
               onClick={() => handleLinkClick('contact')}
               variant="outline" 
-              className="font-heading text-white border-[#B026FF] hover:bg-[#B026FF]/10 transition-all duration-300 neon-border rounded-md"
+              className="font-heading text-white border-[#ffde59] hover:bg-[#ffde59]/10 transition-all duration-300 neon-border rounded-md"
             >
               Contact
             </Button>
@@ -132,7 +132,7 @@ const Header = () => {
             <Button 
               onClick={() => handleLinkClick('contact')}
               variant="outline"
-              className="font-heading text-white border-[#B026FF] hover:bg-[#B026FF]/10 transition-all duration-300 inline-block text-center"
+              className="font-heading text-white border-[#ffde59] hover:bg-[#ffde59]/10 transition-all duration-300 inline-block text-center"
             >
               Contact
             </Button>

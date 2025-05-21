@@ -17,9 +17,9 @@
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 100%;
   --secondary-foreground: 0 0% 0%;
-  --accent1: 280 100% 60%; /* Neon Purple: #B026FF */
+  --accent1: 50 100% 68%; /* Brand Gold: #ffde59 */
   --accent2: 180 100% 50%; /* Electric Blue: #00FFFF */
-  --accent3: 120 100% 54%; /* Neon Green: #39FF14 */
+  --accent3: 0 100% 70%; /* Coral Red: #ff6b6b */
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --ring: 240 4.9% 83.9%;
@@ -55,11 +55,11 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-[#B026FF] to-[#00FFFF] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#ffde59] to-[#00FFFF] bg-clip-text text-transparent;
   }
   
   .animate-text-shine {
-    @apply bg-gradient-to-r from-[#B026FF] via-[#00FFFF] to-[#39FF14] bg-clip-text text-transparent bg-[length:300%_100%] animate-[textShine_8s_linear_infinite];
+    @apply bg-gradient-to-r from-[#ffde59] via-[#00FFFF] to-[#ff6b6b] bg-clip-text text-transparent bg-[length:300%_100%] animate-[textShine_8s_linear_infinite];
   }
 
   .neon-border {
@@ -68,11 +68,11 @@
   
   .neon-border::after {
     content: '';
-    @apply absolute inset-0 border border-[#B026FF] opacity-0 transition-opacity duration-300 pointer-events-none;
+    @apply absolute inset-0 border border-[#ffde59] opacity-0 transition-opacity duration-300 pointer-events-none;
   }
   
   .neon-border:hover::after {
-    @apply opacity-100 shadow-[0_0_10px_rgba(176,38,255,0.5),0_0_20px_rgba(176,38,255,0.3)];
+    @apply opacity-100 shadow-[0_0_10px_rgba(255,222,89,0.5),0_0_20px_rgba(255,222,89,0.3)];
   }
 
   .card-hover {
@@ -80,7 +80,7 @@
   }
   
   .card-hover:hover {
-    @apply transform -translate-y-1 shadow-[0_10px_25px_-5px_rgba(176,38,255,0.4),0_8px_10px_-6px_rgba(0,255,255,0.3)];
+    @apply transform -translate-y-1 shadow-[0_10px_25px_-5px_rgba(255,222,89,0.4),0_8px_10px_-6px_rgba(0,255,255,0.3)];
   }
 }
 

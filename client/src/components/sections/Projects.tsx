@@ -14,7 +14,7 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h4 className="font-mono text-[#39FF14] mb-4 tracking-wider">Portfolio</h4>
+          <h4 className="font-mono text-[#ffde59] mb-4 tracking-wider">Portfolio</h4>
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
             Featured <span className="gradient-text">Projects</span>
           </h2>

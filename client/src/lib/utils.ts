@@ -8,9 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 export const ACCENT_COLORS = {
   primary: "#000000",
   secondary: "#FFFFFF",
-  accent1: "#B026FF", // Neon Purple
+  accent1: "#ffde59", // Brand Gold
   accent2: "#00FFFF", // Electric Blue
-  accent3: "#39FF14", // Neon Green
+  accent3: "#ff6b6b", // Coral Red
   dark: "#121212",
   light: "#F5F5F5",
 };
