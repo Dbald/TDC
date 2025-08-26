@@ -69,24 +69,24 @@ const Header = () => {
             >
               About
             </button>
-            <button 
+            {/* <button 
               onClick={() => handleLinkClick('projects')}
               className="font-heading text-white/80 hover:text-white transition-colors duration-300 hover:text-shadow-sm"
             >
               Projects
-            </button>
+            </button> */}
             <button 
               onClick={() => handleLinkClick('speaking')}
               className="font-heading text-white/80 hover:text-white transition-colors duration-300 hover:text-shadow-sm"
             >
               Speaking
             </button>
-            <button 
+            {/* <button 
               onClick={() => handleLinkClick('tutorials')}
               className="font-heading text-white/80 hover:text-white transition-colors duration-300 hover:text-shadow-sm"
             >
               Tutorials
-            </button>
+            </button> */}
             <Button 
               onClick={() => handleLinkClick('contact')}
               variant="outline" 
