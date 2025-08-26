@@ -111,24 +111,24 @@ const Header = () => {
             >
               About
             </button>
-            <button 
+            {/* <button 
               onClick={() => handleLinkClick('projects')}
               className="font-heading text-white/80 hover:text-white py-2 transition-colors duration-300"
             >
               Projects
-            </button>
+            </button> */}
             <button 
               onClick={() => handleLinkClick('speaking')}
               className="font-heading text-white/80 hover:text-white py-2 transition-colors duration-300"
             >
               Speaking
             </button>
-            <button 
+            {/* <button 
               onClick={() => handleLinkClick('tutorials')}
               className="font-heading text-white/80 hover:text-white py-2 transition-colors duration-300"
             >
               Tutorials
-            </button>
+            </button> */}
             <Button 
               onClick={() => handleLinkClick('contact')}
               variant="outline"

@@ -22,7 +22,7 @@ const About = () => {
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
+                src="https://res.cloudinary.com/dmcv3bbe0/image/upload/v1747817807/devpic_wznqnr.jpg" 
                 alt="Creative technologist working with immersive technology" 
                 className="w-full h-full object-cover" 
               />

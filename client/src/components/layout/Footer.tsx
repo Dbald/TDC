@@ -34,16 +34,16 @@ const Footer = () => {
               Exploring the intersection of creativity, innovation, and education in immersive technology.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="Twitter">
+              {/* <a href="#" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="Twitter">
                 <FaTwitter className="text-lg" />
-              </a>
-              <a href="#" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="LinkedIn">
+              </a> */}
+              <a href="https://www.linkedin.com/in/itsdevinci/" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="LinkedIn">
                 <FaLinkedin className="text-lg" />
               </a>
-              <a href="#" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="GitHub">
+              <a href="https://github.com/Dbald/" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="GitHub">
                 <FaGithub className="text-lg" />
               </a>
-              <a href="#" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="YouTube">
+              <a href="https://www.youtube.com/@thedevincicode" className="text-white/50 hover:text-[#B026FF] transition-colors duration-300" aria-label="YouTube">
                 <FaYoutube className="text-lg" />
               </a>
             </div>
@@ -60,14 +60,14 @@ const Footer = () => {
                   About
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button 
                   onClick={() => scrollToSection('projects')} 
                   className="text-white/70 hover:text-white transition-colors duration-300"
                 >
                   Projects
                 </button>
-              </li>
+              </li> */}
               <li>
                 <button 
                   onClick={() => scrollToSection('speaking')} 
@@ -76,14 +76,14 @@ const Footer = () => {
                   Speaking
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button 
                   onClick={() => scrollToSection('tutorials')} 
                   className="text-white/70 hover:text-white transition-colors duration-300"
                 >
                   Tutorials
                 </button>
-              </li>
+              </li> */}
               <li>
                 <button 
                   onClick={() => scrollToSection('contact')} 
@@ -98,10 +98,10 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-bold mb-6">Resources</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Blog</a></li>
+              {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Blog</a></li> */}
               <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Press Kit</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+              {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Privacy Policy</a></li> */}
+              {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Terms of Service</a></li> */}
             </ul>
           </div>
           

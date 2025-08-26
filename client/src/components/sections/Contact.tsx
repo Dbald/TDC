@@ -141,7 +141,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-heading text-lg font-bold mb-1">Location</h3>
                   <p className="text-white/70">
-                    San Francisco, CA (Available for remote and in-person engagements)
+                    Oakland, CA (Available for remote and in-person engagements)
                   </p>
                 </div>
               </motion.div>
@@ -154,29 +154,29 @@ const Contact = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <a 
+              {/* <a 
                 href="#" 
                 className="bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors duration-300" 
                 aria-label="Twitter"
               >
                 <FaTwitter className="text-white text-xl" />
-              </a>
+              </a> */}
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/itsdevinci/" 
                 className="bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors duration-300" 
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="text-white text-xl" />
               </a>
               <a 
-                href="#" 
+                href="https://github.com/Dbald/" 
                 className="bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors duration-300" 
                 aria-label="GitHub"
               >
                 <FaGithub className="text-white text-xl" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@thedevincicode" 
                 className="bg-white/5 p-3 rounded-full hover:bg-white/10 transition-colors duration-300" 
                 aria-label="YouTube"
               >
