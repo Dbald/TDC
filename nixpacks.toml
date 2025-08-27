@@ -1,0 +1,12 @@
+# nixpacks.toml
+
+[phases.install]
+# keep npm ci, but disable the default node_modules/.cache mount
+cmds = ["npm ci"]
+cacheDirectories = []      # <- important
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm run start"
