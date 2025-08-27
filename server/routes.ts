@@ -19,16 +19,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
 
   // CORS: allow Netlify app + local dev
-  const allowlist = [process.env.APP_ORIGIN, "http://localhost:5173"].filter(Boolean) as string[];
+  const allowlist = [
+    "https://thedevincicode.com",
+    "https://www.thedevincicode.com",         // add if you serve www
+    process.env.APP_ORIGIN,                    // e.g. https://thedevincicode.netlify.app
+    "http://localhost:5173",
+  ].filter(Boolean) as string[];
+
+  // make Vary: Origin explicit for caches/CDN
+  app.use((_, res, next) => { res.setHeader("Vary", "Origin"); next(); });
+
+  // simple, non-credentialed CORS
   app.use(
     cors({
-      origin: (origin, cb) => {
-        if (!origin || allowlist.includes(origin)) return cb(null, true);
-        return cb(new Error("Not allowed by CORS"));
-      },
+      origin: allowlist,                // array is fine
       methods: ["GET", "POST", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: false,               // important since we removed it client-side
+      optionsSuccessStatus: 204,
     })
   );
+
+  // ensure OPTIONS preflight is handled
+  app.options("*", cors());
 
   // helper to create a token + hash (store only the hash)
   const makeToken = () => {
