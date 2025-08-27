@@ -21,20 +21,18 @@ export async function apiRequest(method: string, url: string, data?: unknown) {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
-    credentials: "include",
+    // credentials: "include", // ← remove
   });
   await throwIfResNotOk(res);
   return res;
 }
 
-// ✅ declare the generic on the function
 export const getQueryFn = <T>({ on401 }: { on401: "returnNull" | "throw" }): QueryFunction<T> => {
   return async ({ queryKey }) => {
     const url = String(queryKey[0]);
-    const res = await fetch(resolveUrl(url), { credentials: "include" });
+    const res = await fetch(resolveUrl(url)); // ← no credentials
 
     if (on401 === "returnNull" && res.status === 401) {
-      // still satisfy T
       return null as unknown as T;
     }
 
