@@ -99,7 +99,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-heading text-lg font-bold mb-1">Email</h3>
                   <a 
-                    href="mailto:hello@thedevincicode.com" 
+                    href="mailto:itsdevincicode@gmail.com" 
                     className="text-white/70 hover:text-white transition-colors duration-300"
                   >
                     hello@thedevincicode.com

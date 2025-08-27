@@ -67,7 +67,7 @@ const About = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <span className="block text-3xl font-bold text-[#00FFFF] mb-2">50+</span>
+                <span className="block text-3xl font-bold text-[#00FFFF] mb-2">15+</span>
                 <span className="text-sm text-white/60">Speaking Events</span>
               </motion.div>
               

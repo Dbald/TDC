@@ -92,13 +92,13 @@ const Speaking = () => {
           >
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                src="https://res.cloudinary.com/dmcv3bbe0/image/upload/v1747902191/IMG_7440_gveltg.jpg" 
                 alt="Speaker presenting at a technology conference" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
             </div>
-            <motion.div 
+            {/* <motion.div 
               className="absolute -top-6 -right-6 bg-[#B026FF]/10 backdrop-blur-sm border border-[#B026FF]/20 rounded-lg p-6 max-w-xs"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ const Speaking = () => {
                 approachable content. Our team left inspired and equipped with practical skills."
               </blockquote>
               <div className="font-mono text-sm text-[#B026FF]">— Technology Director, Major Tech Company</div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

@@ -58,12 +58,12 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <Button 
+            {/* <Button 
               onClick={() => scrollToSection('projects')}
               className="inline-flex justify-center items-center w-full sm:w-auto bg-[#ffde59] text-black font-heading font-medium px-8 py-6 rounded-md hover:bg-[#ffde59]/90 transition-all duration-300 text-center"
             >
               Explore Projects
-            </Button>
+            </Button> */}
             
             <Button 
               onClick={() => scrollToSection('contact')}

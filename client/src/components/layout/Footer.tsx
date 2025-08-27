@@ -98,7 +98,7 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-bold mb-6">Resources</h4>
             <ul className="space-y-4">
-              {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Blog</a></li> */}
+              <li><a href="https://www.instagram.com/thedevincicode/" className="text-white/70 hover:text-white transition-colors duration-300">Blog</a></li>
               <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Press Kit</a></li>
               {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Privacy Policy</a></li> */}
               {/* <li><a href="#" className="text-white/70 hover:text-white transition-colors duration-300">Terms of Service</a></li> */}
