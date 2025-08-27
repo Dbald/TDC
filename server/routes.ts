@@ -53,9 +53,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ✅ create transporter BEFORE any route uses it
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),                // 465 or 587
-    secure: Number(process.env.SMTP_PORT) === 465,      // true for 465, false for 587
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    port: 587,                // 465 or 587
+    secure: false,    // true for 465, false for 587
+    auth: { user: process.env.SMTP_USER!, pass: process.env.SMTP_PASS! },
+  connectionTimeout: 15000,   // 15s
+  greetingTimeout: 10000,     // 10s
+  socketTimeout: 20000,       // 20s
+  logger: true,               // log to console
+  debug: true,                // include SMTP traffic
   });
 
   if (process.env.NODE_ENV !== "production") {
@@ -66,7 +71,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   }
 
   // SUBSCRIBE – double opt-in: save (or update) token and email confirm link
-  app.post("/api/subscribe", async (req, res) => {
+  app.post("/api/subscribe", async (req, res, next) => {
+    console.log("[subscribe] body:", req.body);
+    next();
     try {
       const { email } = insertSubscriberSchema.parse(req.body); // only { email }
       const existing = await storage.getSubscriberByEmail(email);
@@ -141,6 +148,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("[subscribe] error:", error);
       return res.status(500).json({ message: "Unable to subscribe right now." });
     }
+
   });
 
   // CONFIRM – finalizes the subscription
@@ -169,7 +177,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
 
   // CONTACT – unchanged, now uses the transporter defined above
-  app.post("/api/contact", async (req, res) => {
+  app.post("/api/contact", async (req, res, next) => {
+    console.log("[contact] body:", req.body);
+    next();
     try {
       const validData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(validData);
