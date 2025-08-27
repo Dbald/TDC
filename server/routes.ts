@@ -12,14 +12,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use(express.json());
 
   // health check (add this)
-app.get("/api/health", (_req, res) => {
-  res.status(200).json({
-    ok: true,
-    env: process.env.NODE_ENV,
-    uptime: Math.round(process.uptime()),
-    now: new Date().toISOString(),
+  app.get("/api/health", (_req, res) => {
+    res.status(200).json({ ok: true, now: new Date().toISOString() });
   });
-});
+  console.log("[routes] /api/health ready");
 
 
   // CORS: allow Netlify app + local dev
