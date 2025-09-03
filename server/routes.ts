@@ -70,86 +70,76 @@ export async function registerRoutes(app: Express): Promise<Server> {
       .catch(err => console.error("SMTP verify failed:", err));
   }
 
-  // SUBSCRIBE – double opt-in: save (or update) token and email confirm link
-  app.post("/api/subscribe", async (req, res, next) => {
-    console.log("[subscribe] body:", req.body);
-    next();
+ // SUBSCRIBE (returns 201 if email sent, 202 if email couldn't be sent)
+app.post("/api/subscribe", async (req, res) => {
+  try {
+    const { email } = insertSubscriberSchema.parse(req.body);
+
+    // ... your token + upsert logic ...
+    const { token, hash } = makeToken();
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const existing = await storage.getSubscriberByEmail(email);
+    if (existing?.status === "confirmed") {
+      return res.status(200).json({ message: "Already subscribed" });
+    }
+    if (!existing) await storage.createSubscriber({ email });
+    await storage.updateSubscriberToken({
+      email,
+      confirm_token_hash: hash,
+      token_expires_at: expiresAt,
+      status: "pending",
+      ip: req.ip ?? null,
+      user_agent: (req.headers["user-agent"] as string) ?? null,
+    });
+
+    const confirmUrl = `${process.env.API_ORIGIN}/api/confirm?token=${token}`;
+    const html = `
+      <p>Confirm your subscription to <b>The Devinci Code</b>:</p>
+      <p><a href="${confirmUrl}">👉 Confirm my email</a></p>
+      <p>If you didn’t request this, you can ignore this message.</p>
+    `;
+
+    // Try to send, but DO NOT throw if it fails
+    let sent = false;
     try {
-      const { email } = insertSubscriberSchema.parse(req.body); // only { email }
-      const existing = await storage.getSubscriberByEmail(email);
-
-      const { token, hash } = makeToken();
-      const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
-
-      if (existing?.status === "confirmed") {
-        return res.status(200).json({ message: "Already subscribed" });
-      }
-
-      if (existing) {
-        await storage.updateSubscriberToken({
-          email,
-          confirm_token_hash: hash,
-          token_expires_at: expiresAt,
-          status: "pending",
-          ip: req.ip ?? null,
-          user_agent: (req.headers["user-agent"] as string) ?? null,
+      // prefer HTTP email provider (see section 2 below)
+      if (process.env.RESEND_API_KEY) {
+        await sendEmailViaResend({
+          to: email,
+          subject: "Please confirm your subscription",
+          html,
         });
-      } else {
-        // create new subscriber (InsertSubscriber is just { email })
-        await storage.createSubscriber({ email });
-        // then add token/status
-        await storage.updateSubscriberToken({
-          email,
-          confirm_token_hash: hash,
-          token_expires_at: expiresAt,
-          status: "pending",
-          ip: req.ip ?? null,
-          user_agent: (req.headers["user-agent"] as string) ?? null,
-        });
-      }
-
-      // was: const confirmUrl = `${process.env.SITE_URL}/api/confirm?token=${token}`;
-      const confirmUrl = `${process.env.API_ORIGIN}/api/confirm?token=${token}`;
-
-      const html = `
-        <p>Confirm your subscription to <b>The Devinci Code</b>:</p>
-        <p><a href="${confirmUrl}">👉 Confirm my email</a></p>
-        <p>If you didn’t request this, you can ignore this message.</p>
-      `;
-
-      try {
-        const info = await transporter.sendMail({
+        sent = true;
+      } else if (transporter) {
+        await transporter.sendMail({
           from: `"The Devinci Code" <${process.env.SMTP_USER}>`,
-          to: email, // for a quick sanity check, you can temporarily use process.env.SMTP_USER
+          to: email,
           subject: "Please confirm your subscription",
           text: `Confirm your subscription: ${confirmUrl}`,
           html,
         });
-
-        console.log("[subscribe] send OK:",
-          { messageId: info.messageId, accepted: info.accepted, rejected: info.rejected, response: info.response });
-
-        // if Gmail rejected it, surface that to the client
-        if (info.rejected && info.rejected.length) {
-          return res.status(502).json({ ok: false, where: "sendMail", rejected: info.rejected });
-        }
-      } catch (e) {
-        console.error("[subscribe] sendMail failed:", e);
-        return res.status(502).json({ ok: false, where: "sendMail", error: String(e) });
+        sent = true;
       }
-
-
-      return res.status(201).json({ message: "Check your email to confirm." });
-    } catch (error: any) {
-      if (error.name === "ZodError") {
-        const validationError = fromZodError(error);
-        return res.status(400).json({ message: validationError.message });
-      }
-      console.error("[subscribe] error:", error);
-      return res.status(500).json({ message: "Unable to subscribe right now." });
+    } catch (mailErr) {
+      console.error("[subscribe] sendMail failed:", mailErr);
+      // swallow error, we’ll return 202 below
     }
 
-  });
+    if (sent) {
+      return res.status(201).json({ message: "Check your email to confirm." });
+    }
+    return res.status(202).json({
+      message:
+        "Subscribed, but the confirmation email couldn’t be sent yet. Please try again later.",
+    });
+  } catch (error: any) {
+    if (error.name === "ZodError") {
+      return res.status(400).json({ message: fromZodError(error).message });
+    }
+    console.error("[subscribe] error:", error);
+    return res.status(500).json({ message: "Unable to subscribe right now." });
+  }
+});
 
   // CONFIRM – finalizes the subscription
   app.get("/api/confirm", async (req, res) => {

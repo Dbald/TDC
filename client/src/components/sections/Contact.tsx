@@ -120,7 +120,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-heading text-lg font-bold mb-1">Schedule a Call</h3>
                   <a 
-                    href="#" 
+                    href="https://calendly.com/itsdevinci/meeting" 
                     className="text-white/70 hover:text-white transition-colors duration-300"
                   >
                     Book a 30-minute consultation
